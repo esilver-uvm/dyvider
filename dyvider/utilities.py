@@ -7,6 +7,7 @@ Authors:
 * Alice Patania <alice.patania@uvm.edu>
 """
 import networkx as nx
+import warnings
 
 def preprocess(g):
     """Pre-process graph and scores.
@@ -61,10 +62,10 @@ def preprocess(g):
 
     # raise Warnings if needed:
     if has_equal_scores:
-        raise RuntimeWarning("Nodes with identical scores have been collapsed "
-                             "into  super-nodes. The default objective "
-                             "functions don't account for super-nodes; use "
-                             "custom objectives.")
+        warnings.warn("Nodes with identical scores have been collapsed "
+                      "into  super-nodes. The default objective "
+                      "functions don't account for super-nodes; use "
+                      "custom objectives.")
 
     return g_prime
 
